@@ -1,0 +1,107 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+[](fg:bg)\
+$fill\
+[](fg:bg)[ ∣ ](bg:bg fg:accent)\
+$nodejs\
+$python\
+$cmd_duration\
+$jobs\
+$time\n  \
+[󱞪](fg:bg) \
+"""
+
+
+palette = "thockyspace-linear"
+
+[palettes.thockyspace-linear]
+bg = '#252D32'
+accent = '#42BDE6'
+text = '#88C0D0'
+
+[fill]
+symbol = " "
+
+[username]
+disabled = false
+format = "[](fg:bg)[ ∣    $user ]($style)"
+show_always = true
+style_root = "bg:bg fg:accent"
+style_user = "bg:bg fg:accent"
+
+[hostname]
+disabled = false
+ssh_only = false
+format = "[ @$hostname  ∣ ]($style)"
+style = "bg:bg fg:accent"
+
+[directory]
+format = "[ $path  ]($style)(fg:text)"
+style = "bg:bg fg:text"
+truncation_length = 8
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"dev" = "󰵮 "
+
+[git_branch]
+style = "bg:bg fg:text"
+format = "[ ∣ ](bg:bg fg:accent)[$symbol $branch]($style)[ 󰁕 ](bg:bg fg:accent)"
+symbol = "    "
+
+[git_status]
+disabled = false
+style = "bg:bg fg:text"
+format = '[$all_status$ahead_behind]($style)[ ∣ ](bg:bg fg:accent)'
+up_to_date = '[ ✓ ](style)'
+untracked = '[ ?${count} ](style)'
+stashed = '[ $ ](style)'
+modified = '[ !${count} ](style)'
+renamed = '[ »${count} ](style)'
+deleted = '[ ✘${count} ](style)'
+staged = '[ ++${count} ](style)'
+ahead = '[ ${count} ](style)'
+diverged = '[  ${ahead_count}${behind_count} ](style)'
+behind = '[ ${count} ](style)'
+
+[git_metrics]
+disabled = false
+only_nonzero_diffs = true
+format = "[  $added // $deleted   ](bg:bg fg:accent)"
+
+[nodejs]
+style = "bg:bg fg:text"
+format = "[ $symbol$version ]($style)[ ∣ ](bg:bg fg:accent)"
+disabled = false
+symbol = "󰎙 "
+
+[python]
+style = "bg:bg fg:text"
+disabled = false
+symbol = " "
+format = "[ $symbol via ${virtualenv ]($style)[ ∣ ](bg:bg fg:accent)"
+
+[cmd_duration]
+min_time = 1000
+style = "bg:bg fg:text"
+format = "[ 󰞌 $duration ]($style)[ ∣ ](bg:bg fg:accent)"
+
+[jobs]
+disabled = false
+style = "bg:bg fg:text"
+format = "[ $symbol$number ]($style)[ ∣ ](bg:bg fg:accent)"
+
+[time]
+disabled = false
+style = "bg:bg fg:text"
+time_format = "%R"
+format = "[   $time ]($style)[ ∣ ](bg:bg fg:accent)[](fg:bg)"
