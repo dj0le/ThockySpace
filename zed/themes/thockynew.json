@@ -7,6 +7,14 @@
       "appearance": "dark",
       "name": "thocky - dark",
       "style": {
+        "accents": [
+          "#8DA6B4",
+          "#7D97A5",
+          "#647F8D",
+          "#57707D",
+          "#4D6471",
+          "#3C505B"
+        ],
         "scrollbar_thumb.background": "#85BFCF",
         "scrollbar.track.background": "#242D32",
         "scrollbar.track.border": "#85BFCF",
@@ -17,7 +25,7 @@
         "border.variant": "#313D5290",
         "border.focused": "#86c3dd",
         "text": "#85BFCF",
-        "text.accent": "#27a0c5",
+        "text.accent": "#41BDE6",
         "text.placeholder": "#BDCDD6",
         "text.muted": "#BDCDD6",
         "tab_bar.background": "#1C282F",
